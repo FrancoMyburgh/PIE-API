@@ -96,11 +96,11 @@ function insertUser($con, $firstname, $lastname, $username, $email, $password){
     verifyFirstname($firstname);
     verifyLastname($lastname);
     verifyUsername($username);
-    verifyEmail($email);
+    ($email);
     verifyPassword($password);
 
     if(empty($errorArray)){
-        $query = $con->prepare("INSERT INTO Users (firstname lastname username, email, password) VALUES (:fn, :ln, :un, :em, :pw)");
+        $query = $con->prepare("INSERT INTO Users (firstname, lastname, username, email, password) VALUES (:fn, :ln, :un, :em, :pw)");
         $query->bindValue(":fn", $firstname);
         $query->bindValue(":ln", $lastname);
         $query->bindValue(":un", $username);
